@@ -60,7 +60,12 @@ if (isset($_SESSION['id']) && isset($_SESSION['user_name'])) {
                     <th> <?php echo $row['fname']; ?> </th>
                     <th> <?php echo $row['lname']; ?> </th>
                     <th> <?php echo $row['contact']; ?> </th>
-                    <th> <a href="" class="btn btn-primary"> EDIT </a></th>
+                
+                <form action="updatedata.php" method="post">
+                    <input type="hidden" name="id" value="<?php echo $row['id'] ?>">
+                <th> <a href="" class="btn btn-primary"> EDIT </a> </th>
+                </form>
+                    
                     <th> <a href="" class="btn btn-danger"> DELETE </a></th>
                 </tr>
             </tbody>
