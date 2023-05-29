@@ -12,7 +12,7 @@ if (isset($_SESSION['id']) && isset($_SESSION['user_name'])) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>HOME</title>
     <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
 </head>
 <body>
     <div class="container">
@@ -21,8 +21,9 @@ if (isset($_SESSION['id']) && isset($_SESSION['user_name'])) {
         <a href="logout.php">logout</a>
         </div>
     </div>
+
     <div class="row">
-        <a href="" class="btn btn-success" style="margin-left: 610%;"> ADD Data </a>
+        <a href="insertdata.php" class="btn btn-success" style="margin-left: 610%;"> ADD Data </a>
     </div>
     
     
