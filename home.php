@@ -63,10 +63,13 @@ if (isset($_SESSION['id']) && isset($_SESSION['user_name'])) {
                 
                 <form action="updatedata.php" method="post">
                     <input type="hidden" name="id" value="<?php echo $row['id'] ?>">
-                <th> <a href="" class="btn btn-primary"> EDIT </a> </th>
+                <th> <input type="submit" name="edit" class="btn btn-success" value="EDIT"> </th>
                 </form>
-                    
-                    <th> <a href="" class="btn btn-danger"> DELETE </a></th>
+
+                <form action="delete.php" method="post">
+                    <input type="hidden" name="id" value="<?php echo $row['id'] ?>">
+                    <th> <input type="submit" name="delete" class="btn btn-danger" value="DELETE"> </th>
+                </form>
                 </tr>
             </tbody>
             <?php

@@ -9,7 +9,7 @@
 </head>
 <body>
     <?php
-    $connection = mysqli_connect("localhost","");
+    $connection = mysqli_connect("localhost","root","");
     $db = mysqli_select_db($connection, 'login_test');
 
     $id = $_POST['id'];
@@ -19,7 +19,7 @@
 
     if($query_run)
     {
-        while($row = mysqli_fetch_array())
+        while($row = mysqli_fetch_array($query_run))
         {
            ?>
            <div class="container">
@@ -30,21 +30,42 @@
                     <input type="hidden" name="id" value="<?php echo $row['id'] ?>">
                 <div class="form-group">
                     <label for=""> First Name </label>
-                    <input type="text" name="fname" class="form-control" value="<?php echo $row['fname'] ?> placeholder="Enter First Name" required>
+                    <input type="text" name="fname" class="form-control" value="<?php echo $row['fname'] ?>" placeholder="Enter First Name" required>
                 </div>
                 <div class="form-group">
                     <label for=""> Last Name </label>
-                    <input type="text" name="lname" class="form-control" value="<?php echo $row['lname'] ?> placeholder="Enter Last Name" required>
+                    <input type="text" name="lname" class="form-control" value="<?php echo $row['lname'] ?>" placeholder="Enter Last Name" required>
                 </div>
                 <div class="form-group">
                     <label for=""> Contact </label>
-                    <input type="text" name="contact" class="form-control" value="<?php echo $row['contact'] ?> placeholder="Enter Contact" required>
+                    <input type="text" name="contact" class="form-control" value="<?php echo $row['contact'] ?>" placeholder="Enter Contact" required>
                 </div>
 
                 <button type="submit" name="update" class="btn btn-primary"> Update Data </button>
 
                 <a href="home.php" class="btn btn-danger"> CANCEL </a>
             </form>
+            <?php
+            if(isset($_POST['update']))
+            {
+                $fname = $_POST['fname'];
+                $lname = $_POST['lname'];
+                $contact = $_POST['contact'];
+
+                $query = "UPDATE student SET fname='$fname', lname='$lname', contact='$contact' WHERE id='$id' ";
+                $query_run = mysqli_query($connection, $query);
+
+                if($query_run)
+                {
+                    echo '<script> alert("Data Update"); </script>';
+                    header("location:home.php");
+                }
+                else
+                {
+                    echo '<script> alert("Data Not Updated"); </script>';
+                }
+            }
+            ?>
             </div>
            </div>
 
