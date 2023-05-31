@@ -19,8 +19,6 @@
         <label>Password</label>
         <input type="password" name="password" placeholder="Password"><br>
 
-        <a href="signup.php">SIGNUP</a>
-
         <button type="submit">Login</button>
     </form>
 </body>
