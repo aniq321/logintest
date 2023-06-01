@@ -1,27 +1,83 @@
+<?php
+session_start();
+if (!isset($_SESSION["user"])) {
+    header("Location: login.php");
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>LOGIN</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="style.css">
+    <title>User Dashboard</title>
 </head>
 <body>
-    <form action="login.php" method="post"> 
-        <h2>LOG-IN</h2>
-        <?php if (isset($_GET['error'])) { ?>
-            <p class="error"><?php echo $_GET['error']; ?></p>
-        <?php } ?>
-        <label>UserName</label>
-        <input type="text" name="uname" placeholder="UserName"><br>
+    <div class="container">
+        <h1>Welcome to Dashboard</h1>
+        <a href="logout.php" class="btn btn-warning">Logout</a>
+    </div>
 
-        <label>Password</label>
-        <input type="password" name="password" placeholder="Password"><br>
+    <div class="row">
+        <a href="insertdata.php" class="btn btn-success" style="margin-left: 610%;"> ADD Data </a>
+    </div>
+    
+    
 
-        <a href="signup.php" target="_blank">Sign Up</a>
+    <?php
+    $connection = mysqli_connect("localhost","root","");
+    $db = mysqli_select_db($connection, 'login_test');
 
-        <button type="submit">Login</button>
-    </form>
+    $query = "SELECT * FROM student";
+    $query_run = mysqli_query($connection, $query);
+    ?>
+    <table class="table table-bordered" style="background-color: white;">
+    <thead class="table-dark">
+        <tr>
+            <th> ID </th>
+            <th> First Name </th>
+            <th> Last Name </th>
+            <th> Contact </th>
+            <th> EDIT </th>
+            <th> DELETE </th>
+        </tr>
+    </thead>
+
+    <?php
+    if($query_run)
+    {
+        while($row = mysqli_fetch_array($query_run))
+        {
+
+            ?>
+            <tbody>
+                <tr>
+                    <th> <?php echo $row['id']; ?> </th>
+                    <th> <?php echo $row['fname']; ?> </th>
+                    <th> <?php echo $row['lname']; ?> </th>
+                    <th> <?php echo $row['contact']; ?> </th>
+                
+                <form action="updatedata.php" method="post">
+                    <input type="hidden" name="id" value="<?php echo $row['id'] ?>">
+                <th> <input type="submit" name="edit" class="btn btn-success" value="EDIT"> </th>
+                </form>
+
+                <form action="delete.php" method="post">
+                    <input type="hidden" name="id" value="<?php echo $row['id'] ?>">
+                    <th> <input type="submit" name="delete" class="btn btn-danger" value="DELETE"> </th>
+                </form>
+                </tr>
+            </tbody>
+            <?php
+        }
+    }
+    else
+    {
+       echo "No Record Found"; 
+    }
+    ?>
+    </table>
 </body>
 </html>
