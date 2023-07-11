@@ -11,35 +11,35 @@ if (!isset($_SESSION["user"])) {
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css">
-    <link rel="stylesheet" href="style.css">
     <title>User Dashboard</title>
 </head>
 <body>
     <div class="container">
-        <h1>Welcome to Dashboard</h1>
+        <h1>Dashboard Pekerja</h1>
         <a href="logout.php" class="btn btn-warning">Logout</a>
     </div>
 
     <div class="row">
-        <a href="insertdata.php" class="btn btn-success" style="margin-left: 610%;"> ADD Data </a>
+        <a href="insertdata.php" class="btn btn-success" style="padding-left: 10px;"> ADD Data </a>
     </div>
     
     
 
     <?php
     $connection = mysqli_connect("localhost","root","");
-    $db = mysqli_select_db($connection, 'login_test');
+    $db = mysqli_select_db($connection, 'pekerja');
 
-    $query = "SELECT * FROM student";
+    $query = "SELECT * FROM workers";
     $query_run = mysqli_query($connection, $query);
     ?>
     <table class="table table-bordered" style="background-color: white;">
     <thead class="table-dark">
         <tr>
             <th> ID </th>
-            <th> First Name </th>
-            <th> Last Name </th>
-            <th> Contact </th>
+            <th> NAMA PEKERJA </th>
+            <th> NO KP </th>
+            <th> NO HP </th>
+            <th> JANTINA </th>
             <th> EDIT </th>
             <th> DELETE </th>
         </tr>
@@ -55,9 +55,10 @@ if (!isset($_SESSION["user"])) {
             <tbody>
                 <tr>
                     <th> <?php echo $row['id']; ?> </th>
-                    <th> <?php echo $row['fname']; ?> </th>
-                    <th> <?php echo $row['lname']; ?> </th>
-                    <th> <?php echo $row['contact']; ?> </th>
+                    <th> <?php echo $row['nama_pekerja']; ?> </th>
+                    <th> <?php echo $row['no_kp']; ?> </th>
+                    <th> <?php echo $row['jantina']; ?> </th>
+                    <th> <?php echo $row['no_hp']; ?> </th>
                 
                 <form action="updatedata.php" method="post">
                     <input type="hidden" name="id" value="<?php echo $row['id'] ?>">

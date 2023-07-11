@@ -11,7 +11,7 @@ if (isset($_SESSION["user"])) {
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css">
-    <link rel="stylesheet" href="style.css">
+
     <title>SINGUP</title>
 </head>
 <body>
@@ -67,6 +67,7 @@ if (isset($_SESSION["user"])) {
             }
         }
         ?>
+        <h1>SIGNUP FORM</h1>
         <form action="registration.php" method="post">
             <div class="form-group">
                 <input type="text" class="form-control" name="fullname" placeholder="Full Name:">

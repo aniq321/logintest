@@ -1,12 +1,12 @@
 <?php
 $connection = mysqli_connect("localhost","root","");
-$db = mysqli_select_db($connection, 'login_test');
+$db = mysqli_select_db($connection, 'pekerja');
 
 if(isset($_POST['delete']))
 {
     $id = $_POST['id'];
 
-    $query = "DELETE FROM student WHERE id='$id' ";
+    $query = "DELETE FROM workers WHERE id='$id' ";
     $query_run = mysqli_query($connection, $query);
 
     if($query_run)
