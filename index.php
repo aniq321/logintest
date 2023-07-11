@@ -18,7 +18,7 @@ if (!isset($_SESSION["user"])) {
         <h1>Dashboard Pekerja</h1>
         <a href="logout.php" class="btn btn-warning">Logout</a>
     </div>
-
+    <br>
     <div class="row">
         <a href="insertdata.php" class="btn btn-success" style="padding-left: 10px;"> ADD Data </a>
     </div>

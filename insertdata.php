@@ -14,19 +14,19 @@
             <hr>
             <form action="" method="post">
                 <div class="form-group">
-                    <label for=""> NAMA PEKERJA </label>
+                    <label for=""> NAMA PEKERJA : &nbsp</label> 
                     <input type="text" name="nama_pekerja" class="form-control" placeholder="Masukkan Nama anda" required>
                 </div>
                 <div class="form-group">
-                    <label for=""> NO KP </label>
+                    <label for=""> NO KP : &nbsp</label>
                     <input type="text" name="no_kp" class="form-control" placeholder="Masukkan No Kp anda" required>
                 </div>
                 <div class="form-group">
-                    <label for=""> JANTINA </label>
+                    <label for=""> JANTINA : &nbsp</label>
                     <input type="text" name="jantina" class="form-control" placeholder="Masukkan Jantina anda" required>
                 </div>
                 <div class="form-group">
-                    <label for=""> NO HP </label>
+                    <label for=""> NO HP : &nbsp</label>
                     <input type="text" name="no_hp" class="form-control" placeholder="Masukkan No Hp anda" required>
                 </div>
 
