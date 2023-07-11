@@ -21,10 +21,14 @@
                     <label for=""> NO KP : &nbsp</label>
                     <input type="text" name="no_kp" class="form-control" placeholder="Masukkan No Kp anda" required>
                 </div>
-                <div class="form-group">
-                    <label for=""> JANTINA : &nbsp</label>
-                    <input type="text" name="jantina" class="form-control" placeholder="Masukkan Jantina anda" required>
-                </div>
+                      <div class="form-group">
+                        <label for=""> JANTINA : &nbsp</label>
+                        <select class="form-control" name="jantina">
+                            <option selected disabled>Select</option>
+                            <option value="Lelaki">Lelaki</option>
+                            <option value="Perempuan">Perempuan</option>
+                        </select>
+                    </div>
                 <div class="form-group">
                     <label for=""> NO HP : &nbsp</label>
                     <input type="text" name="no_hp" class="form-control" placeholder="Masukkan No Hp anda" required>

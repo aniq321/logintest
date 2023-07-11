@@ -57,8 +57,8 @@ if (!isset($_SESSION["user"])) {
                     <th> <?php echo $row['id']; ?> </th>
                     <th> <?php echo $row['nama_pekerja']; ?> </th>
                     <th> <?php echo $row['no_kp']; ?> </th>
-                    <th> <?php echo $row['jantina']; ?> </th>
                     <th> <?php echo $row['no_hp']; ?> </th>
+                    <th> <?php echo $row['jantina']; ?> </th>
                 
                 <form action="updatedata.php" method="post">
                     <input type="hidden" name="id" value="<?php echo $row['id'] ?>">

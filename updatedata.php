@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>UPDATE DATA</title>
+    <link rel="stylesheet" href="style1.css">
 </head>
 <body>
     <?php
@@ -35,10 +36,15 @@
                     <label for=""> NO KP </label>
                     <input type="text" name="no_kp" class="form-control" value="<?php echo $row['no_kp'] ?>" placeholder="Masukkan No Kp anda" required>
                 </div>
-                <div class="form-group">
-                    <label for=""> JANTINA </label>
-                    <input type="text" name="jantina" class="form-control" value="<?php echo $row['jantina'] ?>" placeholder="Masukkan Jantina anda" required>
                 </div>
+                      <div class="form-group">
+                        <label for=""> JANTINA : &nbsp</label>
+                        <select class="form-control" name="jantina">
+                            <option selected disabled>Select</option>
+                            <option value="Lelaki">Lelaki</option>
+                            <option value="Perempuan">Perempuan</option>
+                        </select>
+                    </div>
                 <div class="form-group">
                     <label for=""> NO HP </label>
                     <input type="text" name="no_hp" class="form-control" value="<?php echo $row['no_hp'] ?>" placeholder="Masukkan No Hp anda" required>
